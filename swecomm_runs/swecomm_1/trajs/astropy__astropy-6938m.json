@@ -1,0 +1,73 @@
+{
+    "best_choice": "20240702_codestory_aide_mixed",
+    "best_choice_resolved": true,
+    "evaluations": {
+        "20240702_codestory_aide_mixed": {
+            "score": [
+            ],
+            "avg_score": 9.6,
+            "resolved": true,
+            "patch": {
+                "model_name_or_path": "codestory-mixed",
+                "model_patch": "diff --git a/astropy/io/fits/fitsrec.py b/astropy/io/fits/fitsrec.py\nindex 574b4073b1..de5f93ebda 100644\n--- a/astropy/io/fits/fitsrec.py\n+++ b/astropy/io/fits/fitsrec.py\n@@ -1261,7 +1261,7 @@ class FITS_rec(np.recarray):\n \n         # Replace exponent separator in floating point numbers\n         if 'D' in format:\n-            output_field.replace(encode_ascii('E'), encode_ascii('D'))\n+            output_field[:] = np.char.replace(output_field, encode_ascii('E'), encode_ascii('D'))\n \n \n def _get_recarray_field(array, key):\n",
+                "instance_id": "astropy__astropy-6938"
+            },
+            "explanation": [
+                {
+                    "issue_exp":
+                    "code_span_exp"
+                    "patch_exp":
+                    "new_issues_exp":
+                    "fixes_issue_exp": "",
+                    "msg":
+                },
+                {
+                    "issue_exp":
+                    "code_span_exp"
+                    "patch_exp":
+                    "new_issues_exp":
+                    "fixes_issue_exp": "",
+                    "msg":                 },
+                {
+                    "issue_exp":
+                    "code_span_exp"
+                    "patch_exp":
+                    "new_issues_exp":
+                    "fixes_issue_exp": "",
+                    "msg":                 },
+            ]
+        },
+        "20230726_cosine_genie": {
+            "score": [
+            ],
+            "avg_score": 2.789473684210526,
+            "resolved": false,
+            "patch": {
+                "instance_id": "astropy__astropy-6938",
+                "model_name_or_path": "cosine-genie-v4-25-07-24",
+                "model_patch": "diff --git a/astropy/io/fits/fitsrec.py b/astropy/io/fits/fitsrec.py\n--- a/astropy/io/fits/fitsrec.py\n+++ b/astropy/io/fits/fitsrec.py\n@@ -1256,22 +1256,12 @@ class FITS_rec(np.recarray):\n                 # We have some extra space in the field for the trailing\n                 # decimal point\n                 value = value[1:] + '.'\n-\n-            output_field[jdx] = value\n-\n+            # Replace exponent separator in floating point numbers\n+            #if 'D' in format:\n+            #    output_field.replace(encode_ascii('E'), encode_ascii('D'))\n         # Replace exponent separator in floating point numbers\n-        if 'D' in format:\n-            output_field.replace(encode_ascii('E'), encode_ascii('D'))\n-\n-\n-def _get_recarray_field(array, key):\n-    \"\"\"\n-    Compatibility function for using the recarray base class's field method.\n-    This incorporates the legacy functionality of returning string arrays as\n-    Numeric-style chararray objects.\n-    \"\"\"\n-\n-    # Numpy >= 1.10.dev recarray no longer returns chararrays for strings\n+        #if 'D' in format:\n+        #    output_field.replace(encode_ascii('E'), encode_ascii('D'))\n     # This is currently needed for backwards-compatibility and for\n     # automatic truncation of trailing whitespace\n     field = np.recarray.field(array, key)\n"
+            },
+            "explanation": [
+                {
+                    "issue_exp":
+                    "code_span_exp"
+                    "patch_exp":
+                    "new_issues_exp":
+                    "fixes_issue_exp": "",
+                    "msg":
+                }
+                {
+                    "issue_exp":
+                    "code_span_exp"
+                    "patch_exp":
+                    "new_issues_exp":
+                    "fixes_issue_exp": "",
+                    "msg":
+                }
+            ]
+        }
+    },
+    "top 1 pass": true,
+    "top 3 pass": true,
+    "top 5 pass": true
+}
