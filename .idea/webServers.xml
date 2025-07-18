@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="feb634fb-74eb-4fe1-a0d5-8aef04d1f5b7" name="111">
+        <fileTransfer accessType="SFTP" host="ko1ifjnzn3svsd3kglowa800.funhpc.com" port="30592" sshConfigId="07e13915-d50d-4790-8546-b69240feca61" sshConfig="root@ko1ifjnzn3svsd3kglowa800.funhpc.com:30592 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
